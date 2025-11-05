@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Noto+Serif+JP:wght@200..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Customization -->
+    <title>K&G Stories</title>
+    <link rel="icon" href="imgs/icons/icon-purple.png" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark sticky-top">
+        <!-- Canvas -->
+        <div class="container-fluid">
+            <!-- Wings icon -->
+            <img
+              src="imgs/icons/icon-white.png"
+              width="50"
+              height="55"
+              class="navbar-brand d-inline-block align-text-top"
+            />
+
+            <!-- Title -->
+            <h4 class="offcanvas-title">K&G Stories</h4>
+
+            <!-- Menu button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Offcanvas -->
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+
+                <!-- Offcanvas elements -->
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <!-- Stories dropdown -->
+                        <li class="nav-item dropdown">
+                            <ul class="dropdown-menu dropdown-menu-dark bg-transparent" id="story-list">
+                                <li><h3 class="dropdown-header">Karamyr & Gwendyr Stories</h3></li>
+                                <li>
+                                    <a href="#" data-file="stories/Wing a Birthday.pdf" class="dropdown-item">Wing a Birthday</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-file="stories/Pero entonces se hace el caos.pdf" class="dropdown-item">Then chaos breaks out</a>
+                                </li>
+                                <li><hr class="dropdown-divider" /></li>
+                            </ul>
+                          </li>              
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main container -->
+    <main class="main-container container-fluid">
+        <div id="story-content"></div>
+    </main>
+
+    <!-- Scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
