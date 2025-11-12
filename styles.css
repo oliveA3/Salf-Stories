@@ -54,14 +54,36 @@ body {
     font-family: var(--secundary-font);
 }
 
+.size-control {
+    margin-top: 10px;
+}
+
+/* Chrome, Safari, Edge */
+.form-range::-webkit-slider-thumb {
+    background-color: var(--purple);
+    border: 3px solid var(--white);
+}
+
+/* Firefox */
+.form-range::-moz-range-thumb {
+    background-color: var(--purple);
+    border: 3px solid var(--white);
+}
+
+/* Internet Explorer */
+.form-range::-ms-thumb {
+    background-color: var(--purple);
+    border: 3px solid var(--white);
+}
+
 /*<------ Reader ------>*/
 
 #story-content {
     white-space: pre-wrap;
     font-family: var(--secundary-font);
     padding: 1rem;
-    font-size: 1.2rem;
-    transition: opacity .5s ease;
+    font-size: 20px;
+    transition: opacity 0.5s ease;
     opacity: 1;
 }
 
