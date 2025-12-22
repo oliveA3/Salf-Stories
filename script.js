@@ -1,5 +1,5 @@
 "use strict";
-const storyCount = 9;
+const storyCount = 10;
 const storyList = document.getElementById("story-list");
 const output = document.getElementById("story-content");
 const stories = [];
