@@ -43,9 +43,27 @@ body {
     border-color: var(--white);
     color: var(--purple);
 
-    --bs-btn-hover-bg: trasparent;
+    --bs-btn-hover-bg: transparent;
     --bs-btn-hover-border-color: var(--white);
     --bs-btn-hover-color: var(--white);
+
+    --bs-btn-active-bg: transparent;
+    --bs-btn-active-border-color: var(--white);
+    --bs-btn-active-color: var(--white);
+}
+
+.btn-secondary {
+    background-color: var(--purple);
+    border-color: var(--purple);
+    color: var(--white);
+
+    --bs-btn-hover-bg: transparent;
+    --bs-btn-hover-border-color: var(--white);
+    --bs-btn-hover-color: var(--white);
+
+    --bs-btn-active-bg: transparent;
+    --bs-btn-active-border-color: var(--white);
+    --bs-btn-active-color: var(--white);
 }
 
 .btn-outline-primary {
@@ -55,6 +73,10 @@ body {
     --bs-btn-hover-bg: var(--white);
     --bs-btn-hover-border-color: var(--white);
     --bs-btn-hover-color: var(--purple);
+
+    --bs-btn-active-bg: var(--white);
+    --bs-btn-active-border-color: var(--white);
+    --bs-btn-active-color: var(--purple);
 }
 
 /*<------ NAVBAR ------>*/
@@ -70,6 +92,13 @@ body {
     max-width: 900px;
 }
 
+.edit-fixed-button {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    display: none;
+}
+
 #story-content {
     white-space: pre-wrap;
     font-family: var(--secundary-font);
@@ -77,10 +106,19 @@ body {
     font-size: 20px;
     transition: opacity 0.5s ease;
     opacity: 1;
+    margin-bottom: 20px;
 }
 
 #story-content.fade-out {
     opacity: 0;
+}
+
+#word-count {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    font-size: 1.1rem;
+    display: none;
 }
 
 /*<------ OFFCANVAS MENU ------>*/

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark sticky-top">
+    <!-- Canvas -->
+    <div class="container-fluid">
+        <!-- Wings icon -->
+        <img src="{{ url_for('static', filename='imgs/icons/icon-white.png') }}" width="50" height="55"
+            class="navbar-brand d-inline-block align-text-top" />
+
+        <!-- Title -->
+        <h4 class="offcanvas-title">K&G Stories</h4>
+
+        <!-- Menu button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+            aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Offcanvas -->
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+            aria-labelledby="offcanvasDarkNavbarLabel">
+            <!-- Close button -->
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+
+            <!-- Offcanvas elements -->
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <!-- Stories dropdown -->
+                    <li class="nav-item dropdown">
+                        <ul class="dropdown-menu dropdown-menu-dark bg-transparent" id="story-list">
+                            <li>
+                                <h3 class="dropdown-header">
+                                    Karamyr & Gwendyr Stories
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="#" data-file="/stories/Wing a Birthday.pdf" class="dropdown-item">Wing a
+                                    Birthday</a>
+                            </li>
+                            <li>
+                                <a href="#" data-file="/stories/Pero entonces se hace el caos.pdf"
+                                    class="dropdown-item">Then chaos breaks out</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- New story button -->
+                    <li class="nav-item mt-3 mb-3">
+                        <button class="btn btn-outline-primary"
+                            onclick="window.location.href='{{ url_for('new_story_page') }}'">
+                            New story
+                        </button>
+                    </li>
+
+                    <!-- Font-size control -->
+                    <li class="nav-item size-control">
+                        <label for="size-range" class="form-label">Reading font size</label>
+                        <input type="range" class="form-range range-secondary" min="12" max="28" value="20"
+                            id="size-range" />
+                        <output for="size-range" id="rangeValue" aria-hidden="true"></output>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main container -->
+<main class="main-container container-sm px-4 px-sm-0 position-relative">
+    <button id="edit-button" class="btn btn-secondary edit-fixed-button">Edit story</button>
+    <div id="story-content"></div>
+    <p id="word-count" class="text-muted mt-3"></p>
+</main>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/storiesHandler.js') }}"></script>
+<script src="{{ url_for('static', filename='js/fontSizeControl.js') }}"></script>
+{% endblock %}
