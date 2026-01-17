@@ -107,7 +107,6 @@ function saveOrder() {
         .then((data) => console.log(data.message || data.mensaje));
 }
 
-// <-- READING STORY -->
 storyList.addEventListener("click", function (e) {
     e.preventDefault();
     const link = e.target.closest("a");
@@ -139,6 +138,11 @@ storyList.addEventListener("click", function (e) {
         editButton.dataset.index = index;
         editButton.style.display = "inline-block";
         output.classList.remove("fade-out");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
     }, 500);
 });
 
