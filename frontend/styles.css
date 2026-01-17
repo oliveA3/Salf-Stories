@@ -1,0 +1,92 @@
+* {
+    --purple: #1a051e;
+    --faint-purple: #1a051e93;
+    --white: #e7e7e7;
+    --main-font: '"PT Serif", serif;';
+    --secundary-font: "Crimson Text", serif;
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--main-font);
+}
+
+.bg-dark {
+    background: var(--purple) !important;
+}
+
+.bg-transparent {
+    background-color: var(--faint-purple);
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: url(imgs/reader-bg.jpg) center / cover no-repeat fixed;
+}
+
+/*<------ Navbar ------>*/
+
+.navbar {
+    padding: 15px 8px;
+    color: var(--white);
+}
+
+.offcanvas {
+    background: url(imgs/offcanvas-bg.jpg) center / cover no-repeat fixed;
+}
+
+.dropdown-menu {
+    display: block !important;
+    position: static;
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+
+.dropdown-header {
+    margin-bottom: 10px;
+}
+
+.dropdown-item {
+    font-family: var(--secundary-font);
+}
+
+.size-control {
+    margin-top: 10px;
+}
+
+/* Chrome, Safari, Edge */
+.form-range::-webkit-slider-thumb {
+    background-color: var(--purple);
+    border: 3px solid var(--white);
+}
+
+/* Firefox */
+.form-range::-moz-range-thumb {
+    background-color: var(--purple);
+    border: 3px solid var(--white);
+}
+
+/* Internet Explorer */
+.form-range::-ms-thumb {
+    background-color: var(--purple);
+    border: 3px solid var(--white);
+}
+
+/*<------ Reader ------>*/
+
+#story-content {
+    white-space: pre-wrap;
+    font-family: var(--secundary-font);
+    padding: 1rem;
+    font-size: 20px;
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+
+#story-content.fade-out {
+    opacity: 0;
+}
