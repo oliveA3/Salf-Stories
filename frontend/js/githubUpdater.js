@@ -19,13 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             const data = await response.json();
-
-            if (response.ok) {
-                window.location.href = "/";
-            } else {
-                alert("Hubo un error al subir la historia.");
-                console.error(data);
-            }
+            window.location.href = "/";
         });
     }
 });

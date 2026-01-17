@@ -33,10 +33,10 @@ fetch("/stories_list")
 
                             const li = document.createElement("li");
                             const a = document.createElement("a");
-                            a.href = "#";
+                            a.href = `stories/${title}.docx`;
                             a.className = "dropdown-item";
                             a.textContent = title;
-                            li.dataset.index = index;
+                            a.dataset.index = index;
                             li.appendChild(a);
                             storyList.appendChild(li);
                         })

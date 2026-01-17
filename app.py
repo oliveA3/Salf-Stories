@@ -72,27 +72,31 @@ def new_story():
     title = request.form.get("title")
     content = request.form.get("content")
 
+    if not title or not content:
+        return jsonify({"error": "Missing title or content"}), 400
+
+    # Crear documento .docx
     doc = Document()
     title_run = doc.add_paragraph().add_run(title)
     title_run.bold = True
     doc.add_paragraph()
     content_run = doc.add_paragraph().add_run(content)
 
+    # Guardar en memoria
     file_stream = BytesIO()
     doc.save(file_stream)
     file_stream.seek(0)
 
     file_name = f"stories/{title}.docx"
 
+    # Subir a GitHub como binario (sin codificar)
     repo.create_file(
         path=file_name,
         message=f"New story {title}",
-        content=file_stream.read(),
-        encoding="base64"
+        content=file_stream.read()  # ← contenido binario directamente
     )
 
     return jsonify({"message": f"New story '{title}' uploaded to {file_name}"})
-
 
 
 if __name__ == "__main__":
