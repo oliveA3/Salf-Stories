@@ -9,9 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const title = document.getElementById("title").value;
             const content = document.getElementById("content").value;
 
+            const formData = new FormData();
+            formData.append("title", title);
+            formData.append("content", content);
+
             const response = await fetch("/new_story", {
                 method: "POST",
-                body: new URLSearchParams({ title, content }),
+                body: formData,
             });
 
             const data = await response.json();
@@ -20,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.href = "/";
             } else {
                 alert("Hubo un error al subir la historia.");
+                console.error(data);
             }
         });
     }

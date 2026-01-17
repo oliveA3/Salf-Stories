@@ -13,7 +13,7 @@ fetch("/stories_list")
     .then((res) => res.json())
     .then((files) => {
         files.forEach((file, index) => {
-            fetch(file.path)
+            fetch(file.url)
                 .then((res) => res.arrayBuffer())
                 .then((buffer) =>
                     mammoth
@@ -24,7 +24,7 @@ fetch("/stories_list")
 
                             const tempDiv = document.createElement("div");
                             tempDiv.innerHTML = html;
-                            
+
                             const firstLine =
                                 tempDiv.querySelector("p, h1, h2, h3");
                             const title = firstLine
@@ -81,7 +81,9 @@ function saveOrder() {
 // <-- READING STORY -->
 storyList.addEventListener("click", function (e) {
     e.preventDefault();
-    const link = e.target;
+    const link = e.target.closest("a");
+    if (!link) return;
+
     const file = link.dataset.file;
     const index = link.dataset.index;
 

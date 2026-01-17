@@ -2,7 +2,7 @@ from flask import Flask, request, send_from_directory, request, jsonify
 from docx import Document
 from io import BytesIO
 import base64
-from github import Github
+from github import Github, Auth
 import os
 import json
 from dotenv import load_dotenv
@@ -12,7 +12,8 @@ load_dotenv()
 app = Flask(__name__, static_folder="frontend")
 
 # GITHUB VARIABLES
-g = Github(os.environ["GITHUB_TOKEN"])
+auth = Auth.Token(os.environ["GITHUB_TOKEN"])
+g = Github(auth=auth)
 repo = g.get_repo("oliveA3/Salf-Stories")
 
 
@@ -71,27 +72,27 @@ def new_story():
     title = request.form.get("title")
     content = request.form.get("content")
 
-    # DOCUMENT CREATION
     doc = Document()
-    run = doc.add_paragraph().add_run(title)
-    run.bold = True
+    title_run = doc.add_paragraph().add_run(title)
+    title_run.bold = True
     doc.add_paragraph()
-    doc.add_paragraph(content)
+    content_run = doc.add_paragraph().add_run(content)
 
     file_stream = BytesIO()
     doc.save(file_stream)
     file_stream.seek(0)
-    content_base64 = base64.b64encode(file_stream.read()).decode("utf-8")
+
     file_name = f"stories/{title}.docx"
 
-    # UPLOAD TO GITHUB
     repo.create_file(
-        file_name,
-        f"New story {title}",
-        content_base64,
+        path=file_name,
+        message=f"New story {title}",
+        content=file_stream.read(),
+        encoding="base64"
     )
 
-    return jsonify({"message": f"New story {title} uploaded to {file_name}"})
+    return jsonify({"message": f"New story '{title}' uploaded to {file_name}"})
+
 
 
 if __name__ == "__main__":
